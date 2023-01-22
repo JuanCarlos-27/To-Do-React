@@ -3,6 +3,7 @@ import { Form } from './components/Form'
 import { Input } from './components/Input'
 import Modal from './components/Modal'
 import TaskCard from './components/TaskCard'
+import { generateID } from './utils'
 
 function App () {
   const INITIAL_STATE = [
@@ -63,10 +64,6 @@ function App () {
     setModalOpen(!modalOpen)
   }
 
-  const generateID = () => {
-    return tasks.at(-1).id + 1
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!title.trim() || !content.trim()) {
@@ -74,7 +71,7 @@ function App () {
       return
     }
     const newTask = {
-      id: generateID(),
+      id: generateID(tasks),
       color: '#fff',
       title,
       content
