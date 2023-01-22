@@ -3,28 +3,12 @@ import { Form } from './components/Form'
 import { Input } from './components/Input'
 import Modal from './components/Modal'
 import TaskCard from './components/TaskCard'
-import { generateID } from './utils'
+import { generateID, INITIAL_STATE_TASKS } from './utils'
 
 function App () {
-  const INITIAL_STATE = [
-    {
-      id: 1000,
-      title: 'Aprender REACT JS',
-      content:
-        'Todos los dias a las 7 de las mañana debo ver un tutorial sobre react para aprender.',
-      color: '#fff'
-    },
-    {
-      id: 1001,
-      title: 'Terminar el crud que empece',
-      content: 'Para practicar react tengo que hacer un todo.',
-      color: '#fff'
-    }
-  ]
-
   const [tasks, setTasks] = useState(() => {
     const tasksFromStorage = JSON.parse(window.localStorage.getItem('tasks'))
-    return tasksFromStorage ?? INITIAL_STATE
+    return tasksFromStorage ?? INITIAL_STATE_TASKS
   })
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
@@ -47,7 +31,7 @@ function App () {
   }
 
   const handleChangeBgColor = (colorCard, idCard) => {
-    const copy = tasks.map((task) => {
+    const copy = tasks.map(task => {
       return task.id === idCard ? { ...task, color: colorCard } : task
     })
     setTasks(copy)
