@@ -4,6 +4,7 @@ import { Input } from './components/Input'
 import Modal from './components/Modal'
 import TaskCard from './components/TaskCard'
 import { generateID, INITIAL_STATE_TASKS } from './utils'
+import confetti from 'canvas-confetti'
 
 function App () {
   const [tasks, setTasks] = useState(() => {
@@ -40,6 +41,7 @@ function App () {
   const handleDelete = (cardID) => {
     const newTasks = tasks.filter((task) => task.id !== cardID)
     setTasks(newTasks)
+    confetti()
   }
 
   const handleEdit = (cardId) => {
@@ -67,9 +69,10 @@ function App () {
 
   const handleSubmitEdit = (e) => {
     e.preventDefault()
-    // if (taskEdit.title || taskEdit.content || taskEdit.title === '' || taskEdit.content === '') {
-    //   window.alert('Llene los campos para editar por fa')
-    // }
+    if (taskEdit.title === '' || taskEdit.content === '') {
+      window.alert('Llene los campos para editar por fa')
+      return
+    }
 
     const copyOfTasks = [...tasks].map(task => {
       return taskEdit.id === task.id ? { ...task, ...taskEdit } : task
