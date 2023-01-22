@@ -1,0 +1,158 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: rgb(212, 232, 248);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  margin-top: 30px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+section form{
+  width: 80%;
+  margin: auto;
+  padding: 15px;
+}
+
+section form div {
+  width: 100%;
+  margin: 7px;
+}
+
+label {
+  font-weight: 700;
+  font-size: 22px;
+}
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  color: #333;
+  width: 100%;
+  font-size: 18px;
+  outline: none;
+}
+
+.container-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.button{
+  padding: 10px 40px;
+  font-size: 19px;
+  cursor: pointer;
+  background-color: rgb(255, 213, 0);
+  border: 2px solid #333;
+  font-weight: 700;
+}
+
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.task-card{
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+  border: 2px solid #222;
+  box-shadow: 1px 6px 4px 0px #999;
+}
+.task-title{
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.task-card footer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .task-color{
+  display: flex;
+  gap: 5px;
+}
+footer .task-color div{
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #333;
+  cursor: pointer;
+}
+
+footer .task-actions{
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+footer .task-actions button{
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0,0,0,.8);
+}
+
+.modal-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 1rem;
+  width: 400px;
+  height: 300px;
+  border-radius: .5rem;
+}
+
+.modal.fade-in {
+  display: block;
+  animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
