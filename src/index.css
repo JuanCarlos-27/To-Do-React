@@ -30,10 +30,12 @@ header h1 {
   font-size: 50px;
 }
 
-section form{
+form{
   width: 80%;
   margin: auto;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 section form div {
